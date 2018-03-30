@@ -26,6 +26,9 @@
     const boxFileString =
         getTemplate( "box" )
 
+    const baseURL =
+        "http://shaders.fun.kary.us/"
+
     const shadersDir =
         "collection"
 
@@ -135,10 +138,13 @@
             removeExtension( fileName )
         const shaderCode =
             getShader( fileName )
+        const shaderURL =
+            baseURL + shadersDir + "/" + justName + "/"
         const boxCode =
             boxFileString
                 .replace( "{{-SHADER-NAME-}}", justName )
                 .replace( "{{-SHADER-CODE-}}", shaderCode )
+                .replace( "{{-SHADER-URL-}}", shaderURL )
 
         return boxCode
     }
