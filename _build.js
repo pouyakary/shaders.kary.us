@@ -17,14 +17,36 @@
     const shadersDirectory =
         path.join( process.cwd( ), "_shaders" )
 
-    const templateFileAddress =
-        path.join( process.cwd( ), "_template", "template.html")
+    const homepageFileString =
+        getTemplate( "home" )
 
     const templateFileString =
-        fs.readFileSync( templateFileAddress, "utf8" )
+        getTemplate( "template" )
+
+    const boxFileString =
+        getTemplate( "box" )
 
     const shadersDir =
         "collection"
+
+//
+// ─── GET TEMPLATE ───────────────────────────────────────────────────────────────
+//
+
+    function getTemplate ( name ) {
+        const address =
+            path.join( process.cwd( ), "_template", name + ".html" )
+
+        return fs.readFileSync( address, "utf8" )
+    }
+
+//
+// ─── GET SHADER ─────────────────────────────────────────────────────────────────
+//
+
+    function getShader ( name ) {
+        return fs.readFileSync( path.join( process.cwd( ), "_shaders", name ) )
+    }
 
 //
 // ─── GET FILE ADDRESSES ─────────────────────────────────────────────────────────
@@ -34,14 +56,13 @@
         return fs.readdirSync( shadersDirectory )
     }
 
-
 //
 // ─── BUILD TEMPLATE FOR FILE STRING ─────────────────────────────────────────────
 //
 
     function buildTemplateForFileString ( fileName ) {
         const fragmentFileString =
-            fs.readFileSync( path.join( process.cwd( ), "_shaders", fileName ) )
+            getShader( fileName )
         const name =
             removeExtension( fileName )
         const resultFile =
@@ -90,13 +111,53 @@
     }
 
 //
+// ─── COMPILE HOMEPAGE ───────────────────────────────────────────────────────────
+//
+
+    function createHomepage ( names ) {
+        const boxesForNames =
+            names.map( createBoxForName )
+        const homepageCode =
+            homepageFileString
+                .replace( "{{-BOXES-}}", boxesForNames.join("") )
+        const homepageFileAddress =
+            path.join( process.cwd( ), "index.html" )
+
+        fs.writeFileSync( homepageFileAddress, homepageCode )
+    }
+
+//
+// ─── CREATE A BOX FOR NAME ──────────────────────────────────────────────────────
+//
+
+    function createBoxForName ( fileName ) {
+        const justName =
+            removeExtension( fileName )
+        const shaderCode =
+            getShader( fileName )
+        const boxCode =
+            boxFileString
+                .replace( "{{-SHADER-NAME-}}", justName )
+                .replace( "{{-SHADER-CODE-}}", shaderCode )
+
+        return boxCode
+    }
+
+//
 // ─── MAIN ───────────────────────────────────────────────────────────────────────
 //
 
     main( ); function main ( ) {
-        checkIfDirExistsElseCreateIt( shadersDir )
+        // start
+        const fileNames =
+            getFileAddresses( )
 
-        for ( const name of getFileAddresses( ) )
+        // homepage
+        createHomepage( fileNames )
+
+        // single pages
+        checkIfDirExistsElseCreateIt( shadersDir )
+        for ( const name of fileNames )
             buildTemplateForFileString( name )
     }
 
