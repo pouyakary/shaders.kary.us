@@ -1,0 +1,12 @@
+{
+  "name": "us.kary.fun.shaders",
+  "version": "1.0.0",
+  "description": "",
+  "main": "_build.js",
+  "scripts": {
+    "clean": "rm -rf ./collection",
+    "build": "npm run clean; node ./_build.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
