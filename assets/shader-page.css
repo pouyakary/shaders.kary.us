@@ -1,0 +1,99 @@
+
+/* Copyright 2018 Pouya Kary. All Rights Reserved, */
+
+:root {
+    --button-transition-duration:
+        0.3s;
+    --color:
+        rgba( 255, 255, 255, 0.7 );
+    --font-family:
+        'Roboto', sans-serif;
+    --font-size:
+        15pt;
+    --side-margins:
+        30pt;
+    --sidebar-width:
+        100pt;
+}
+
+html {
+    font-family:    var( --font-family );
+}
+
+* {
+    user-select:    none;
+}
+
+body {
+    background-color:       white;
+    color:                  var( --color );
+    margin:                 0;
+    overflow:               hidden;
+}
+
+.container {
+    display:    flex;
+    height:     100vh;
+    width:      calc( 100vw - var( --side-margins ) * 2 );
+}
+
+.title-container {
+    display:            flex;
+    flex:               auto;
+    flex-direction:     column;
+    height:             calc( 100vh - 2 * var( --side-margins ) );
+    margin:             var( --side-margins );
+    margin-right:       var( --side-margins );
+    max-width:          var( --sidebar-width );
+    min-width:          var( --sidebar-width );
+}
+
+.title-name-container {
+    flex:           1;
+    min-width:      max-content;
+}
+
+.title-name {
+    flex:               1;
+    font-size:          calc( 6 * var( --font-size ) );
+    font-weight:        900;
+    letter-spacing:     1pt;
+    text-transform:     uppercase;
+}
+
+a.back-button {
+    --button-border:
+        2pt solid var( --color );
+    --button-border-padding:
+        10pt;
+
+    max-height:             fit-content;
+    font-size:              calc( var( --font-size ) * 0.9 );
+    border-top:             var( --button-border );
+    color:                  var( --color );
+    flex:                   auto;
+    font-weight:            600;
+    letter-spacing:         1pt;
+    padding-top:            var( --button-border-padding );
+    text-decoration:        none;
+    text-transform:         uppercase;
+    transition-duration:    var( --button-transition-duration );
+    width:                  var( --sidebar-width - 20pt );
+}
+
+a.back-button:hover {
+    background-color:       white;
+    color:                  black;
+    padding-bottom:         calc( var( --button-border-padding ) + 2pt );
+    padding-left:           calc( 7pt + var( --button-border-padding ) );
+    transition-duration:    var( --button-transition-duration );
+}
+
+canvas {
+    height:         100vh;
+    left:           0;
+    position:       fixed;
+    top:            0;
+    width:          100vw;
+    z-index:        -10;
+}
