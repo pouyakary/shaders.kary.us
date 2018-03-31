@@ -10,6 +10,14 @@ body {
   min-height: 100vh;
   overflow: hidden;
 }
+#background {
+  position: fixed;
+  z-index: -10;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+}
 /* page */
 .page-container {
   display: flex;
@@ -23,24 +31,28 @@ header {
   color: black;
   font-size: 50pt;
   font-weight: 900;
-  padding: 20pt;
+  padding: 30pt;
 }
 @media (max-width: 700px) {
   .page-title {
     font-size: 35pt;
   }
 }
-header > div > a {
-  border-bottom: 5pt solid #A56416;
-  color: #A56416;
-  padding-bottom: 0.07em;
-  text-decoration: none;
-  transition-duration: 0.5s;
+.kary-logo {
+  background-image: url("kary-logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 50pt;
+  left: 30pt;
+  opacity: 0.4;
+  position: fixed;
+  top: 30pt;
+  transition-duration: 0.3s;
+  width: 50pt;
 }
-header > div > a :hover {
-  border-color: #C94824;
-  color: #C94824;
-  transition-duration: 0.5s;
+.kary-logo:hover {
+  opacity: 0.8;
+  transition-duration: 0.3s;
 }
 /* Boxes */
 .boxes {
@@ -49,13 +61,13 @@ header > div > a :hover {
   max-height: 320pt;
   min-height: 320pt;
   overflow-x: scroll;
-  padding: 20pt;
+  padding: 30pt;
 }
 /* Single Box */
 .box-container {
   background-color: black;
   flex: auto;
-  margin-right: 20pt;
+  margin-right: 30pt;
   max-height: fit-content;
   max-width: 200pt;
   padding: 10pt;
@@ -71,6 +83,7 @@ header > div > a :hover {
   font-weight: bold;
   padding-bottom: 10pt;
   padding-top: 10pt;
+  text-align: right;
   transition-duration: 0.3s;
 }
 a:hover > .box-title {
@@ -81,4 +94,7 @@ canvas {
   height: 200pt;
   margin-bottom: 0;
   width: 200pt;
+}
+.end-spacer {
+  min-width: 30pt;
 }

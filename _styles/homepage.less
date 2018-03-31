@@ -8,7 +8,7 @@
 @foreground-color:
     white;
 @side-margin:
-    20pt;
+    30pt;
 @box-title-transition-duration:
     0.3s;
 @background-image:
@@ -25,6 +25,15 @@ body {
     margin:             0;
     min-height:         100vh;
     overflow:           hidden;
+}
+
+#background {
+    position: fixed;
+    z-index: -10;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
 }
 
 
@@ -54,26 +63,26 @@ header {
     }
 }
 
-header > div > a {
-    @link-color:
-        #A56416;
-    @link-transition-duration:
-        0.5s;
 
-    border-bottom:          5pt solid @link-color;
-    color:                  @link-color;
-    padding-bottom:         0.07em;
-    text-decoration:        none;
-    transition-duration:    @link-transition-duration;
+.kary-logo {
+    @kary-logo-size:
+        50pt;
 
-    :hover {
-        @link-hover-color:
-            #C94824;
+    background-image:       url( "./kary-logo.png" );
+    background-repeat:      no-repeat;
+    background-size:        contain;
+    height:                 @kary-logo-size;
+    left:                   @side-margin;
+    opacity:                0.4;
+    position:               fixed;
+    top:                    @side-margin;
+    transition-duration:    @box-title-transition-duration;
+    width:                  @kary-logo-size;
+}
 
-        border-color:           @link-hover-color;
-        color:                  @link-hover-color;
-        transition-duration:    @link-transition-duration;
-    }
+.kary-logo:hover {
+    opacity:                0.8;
+    transition-duration:    @box-title-transition-duration;
 }
 
 
@@ -113,6 +122,7 @@ header > div > a {
     font-weight:            bold;
     padding-bottom:         10pt;
     padding-top:            10pt;
+    text-align:             right;
     transition-duration:    @box-title-transition-duration;
 }
 
@@ -125,4 +135,8 @@ canvas {
     height:             200pt;
     margin-bottom:      0;
     width:              200pt;
+}
+
+.end-spacer {
+    min-width:  @side-margin;
 }
