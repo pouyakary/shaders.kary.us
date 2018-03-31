@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>004 &bullet; Gallery of Pouya's Shaders</title>
+    <script type="text/javascript" src="../../assets/canvas.js"></script>
+    <link rel="stylesheet" href="../../assets/shader-page.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
+</head>
+<body>
+    <canvas class="glslCanvas" data-fragment="
+//
+// Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
+//
+
+#ifdef GL_ES
+	precision mediump float;
+#endif
+
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
+
+void main( ) {
+    vec2 st = gl_FragCoord.xy / u_resolution;
+
+    gl_FragColor = vec4(
+        abs( cos( u_time ) ) - sin( st.y ),
+       	abs( cos( u_time ) ) - cos( st.y ) * 2.0,
+        abs( sin( u_time ) ) - cos( st.y ),
+       	1.0
+    );
+}"></canvas>
+    <div class="title-container">
+        <div class="title-name-container">
+            <div class="title-name">004</div>
+        </div>
+        <a class="back-button" href="https://github.com/pmkary/shaders.fun.kary.us/blob/master/_shaders/004.frag">
+            code
+        </a>
+        <a class="back-button" href="http://shaders.fun.kary.us">
+            gallery
+        </a>
+    </div>
+</body>
+</html>
