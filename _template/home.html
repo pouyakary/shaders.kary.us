@@ -43,5 +43,13 @@
             <div class="end-spacer"></div>
         </div>
     </div>
+
+    <script>
+        document.querySelectorAll( ".glslCanvas" )
+            .forEach( function ( canvas ) {
+                canvas.setAttribute( "height", canvas.offsetHeight )
+                canvas.setAttribute( "width", canvas.offsetWidth )
+            })
+    </script>
 </body>
 </html>

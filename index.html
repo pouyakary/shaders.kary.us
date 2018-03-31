@@ -43,7 +43,7 @@
 <div class="box-container">
     <a class="box" href="http://shaders.fun.kary.us/collection/001/">
         <div class="box-title">001</div>
-        <canvas class="glslCanvas" data-fragment="
+        <canvas class="glslCanvas box-shader" data-fragment="
 //
 // Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
 //
@@ -71,7 +71,7 @@ void main( ) {
 <div class="box-container">
     <a class="box" href="http://shaders.fun.kary.us/collection/002/">
         <div class="box-title">002</div>
-        <canvas class="glslCanvas" data-fragment="
+        <canvas class="glslCanvas box-shader" data-fragment="
 //
 // Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
 //
@@ -108,7 +108,7 @@ void main ( ) {
 <div class="box-container">
     <a class="box" href="http://shaders.fun.kary.us/collection/003/">
         <div class="box-title">003</div>
-        <canvas class="glslCanvas" data-fragment="
+        <canvas class="glslCanvas box-shader" data-fragment="
 //
 // Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
 //
@@ -138,7 +138,7 @@ void main( ) {
 <div class="box-container">
     <a class="box" href="http://shaders.fun.kary.us/collection/004/">
         <div class="box-title">004</div>
-        <canvas class="glslCanvas" data-fragment="
+        <canvas class="glslCanvas box-shader" data-fragment="
 //
 // Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
 //
@@ -166,7 +166,7 @@ void main( ) {
 <div class="box-container">
     <a class="box" href="http://shaders.fun.kary.us/collection/005/">
         <div class="box-title">005</div>
-        <canvas class="glslCanvas" data-fragment="
+        <canvas class="glslCanvas box-shader" data-fragment="
 //
 // Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
 //
@@ -213,5 +213,13 @@ void main ( ) {
             <div class="end-spacer"></div>
         </div>
     </div>
+
+    <script>
+        document.querySelectorAll( ".glslCanvas" )
+            .forEach( function ( canvas ) {
+                canvas.setAttribute( "height", canvas.offsetHeight )
+                canvas.setAttribute( "width", canvas.offsetWidth )
+            })
+    </script>
 </body>
 </html>
