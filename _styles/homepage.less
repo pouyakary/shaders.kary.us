@@ -1,142 +1,156 @@
 
-/* base */
+//
+// Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
+//
 
-@background-color:
-    white;
-@font-family:
-    'Roboto', sans-serif;
-@foreground-color:
-    white;
-@side-margin:
-    30pt;
-@box-title-transition-duration:
-    0.3s;
-@background-image:
-    url( "./background.png" );
+//
+// ─── VARIABLES ──────────────────────────────────────────────────────────────────
+//
 
-html {
-    font-family:    @font-family;
-}
+    @background-color:
+        white;
+    @font-family:
+        'Roboto', sans-serif;
+    @foreground-color:
+        white;
+    @side-margin:
+        30pt;
+    @box-title-transition-duration:
+        0.3s;
+    @background-image:
+        url( "./background.png" );
 
-body {
-    background-image:   @background-image;
-    background-size:    50px 50px;
-    color:              @foreground-color;
-    margin:             0;
-    min-height:         100vh;
-    overflow:           hidden;
-}
+//
+// ─── MAIN ───────────────────────────────────────────────────────────────────────
+//
 
-#background {
-    position: fixed;
-    z-index: -10;
-    right: 0;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-}
-
-
-
-/* page */
-
-.page-container {
-    display:            flex;
-    flex-direction:     column;
-    min-height:         100vh;
-}
-
-header {
-    flex:       1;
-}
-
-.page-title {
-    color:          black;
-    font-size:      50pt;
-    font-weight:    900;
-    padding:        @side-margin;
-}
-
-@media ( max-width: 700px ) {
-    .page-title {
-        font-size:      35pt;
+    html {
+        font-family:    @font-family;
     }
-}
+
+    body {
+        background-image:   @background-image;
+        background-size:    50px 50px;
+        color:              @foreground-color;
+        margin:             0;
+        min-height:         100vh;
+        overflow:           hidden;
+    }
+
+    #background {
+        position: fixed;
+        z-index: -10;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 100vw;
+    }
+
+//
+// ─── PAGE CONTAINER ─────────────────────────────────────────────────────────────
+//
+
+    .page-container {
+        display:            flex;
+        flex-direction:     column;
+        min-height:         100vh;
+    }
+
+//
+// ─── HEADER ─────────────────────────────────────────────────────────────────────
+//
+
+    header {
+        flex:       1;
+    }
+
+    .page-title {
+        color:          black;
+        font-size:      50pt;
+        font-weight:    900;
+        padding:        @side-margin;
+    }
+
+    @media ( max-width: 700px ) {
+        .page-title {
+            font-size:      35pt;
+        }
+    }
 
 
-.kary-logo {
-    @kary-logo-size:
-        50pt;
+    .kary-logo {
+        @kary-logo-size:
+            50pt;
 
-    background-image:       url( "./kary-logo.png" );
-    background-repeat:      no-repeat;
-    background-size:        contain;
-    height:                 @kary-logo-size;
-    left:                   @side-margin;
-    opacity:                0.4;
-    position:               fixed;
-    top:                    @side-margin;
-    transition-duration:    @box-title-transition-duration;
-    width:                  @kary-logo-size;
-}
+        background-image:       url( "./kary-logo.png" );
+        background-repeat:      no-repeat;
+        background-size:        contain;
+        height:                 @kary-logo-size;
+        left:                   @side-margin;
+        opacity:                0.4;
+        position:               fixed;
+        top:                    @side-margin;
+        transition-duration:    @box-title-transition-duration;
+        width:                  @kary-logo-size;
+    }
 
-.kary-logo:hover {
-    opacity:                0.8;
-    transition-duration:    @box-title-transition-duration;
-}
+    .kary-logo:hover {
+        opacity:                0.8;
+        transition-duration:    @box-title-transition-duration;
+    }
 
+//
+// ─── BOXES ──────────────────────────────────────────────────────────────────────
+//
 
-/* Boxes */
+    .boxes {
+        display:        flex;
+        flex:           auto;
+        max-height:     320pt;
+        min-height:     320pt;
+        overflow-x:     scroll;
+        padding:        @side-margin;
+    }
 
-.boxes {
-    display:        flex;
-    flex:           auto;
-    max-height:     320pt;
-    min-height:     320pt;
-    overflow-x:     scroll;
-    padding:        @side-margin;
-}
+    .box-container {
+        background-color:       black;
+        flex:                   auto;
+        margin-right:           @side-margin;
+        max-height:             fit-content;
+        max-width:              200pt;
+        padding:                10pt;
+    }
 
+    .box {
+        color:              @foreground-color;
+        text-decoration:    none;
+    }
 
+    .box-title {
+        border-top:             2pt solid @foreground-color;
+        font-family:            inherit;
+        font-size:              20pt;
+        font-weight:            bold;
+        padding-bottom:         10pt;
+        padding-top:            10pt;
+        text-align:             right;
+        transition-duration:    @box-title-transition-duration;
+    }
 
-/* Single Box */
+    a:hover > .box-title {
+        font-size:              50pt;
+        transition-duration:    @box-title-transition-duration;
+    }
 
-.box-container {
-    background-color:       black;
-    flex:                   auto;
-    margin-right:           @side-margin;
-    max-height:             fit-content;
-    max-width:              200pt;
-    padding:                10pt;
-}
+    canvas {
+        height:             200pt;
+        margin-bottom:      0;
+        width:              200pt;
+    }
 
-.box {
-    color:              @foreground-color;
-    text-decoration:    none;
-}
+    .end-spacer {
+        min-width:  @side-margin;
+    }
 
-.box-title {
-    border-top:             2pt solid @foreground-color;
-    font-family:            inherit;
-    font-size:              20pt;
-    font-weight:            bold;
-    padding-bottom:         10pt;
-    padding-top:            10pt;
-    text-align:             right;
-    transition-duration:    @box-title-transition-duration;
-}
+// ────────────────────────────────────────────────────────────────────────────────
 
-a:hover > .box-title {
-    font-size:              50pt;
-    transition-duration:    @box-title-transition-duration;
-}
-
-canvas {
-    height:             200pt;
-    margin-bottom:      0;
-    width:              200pt;
-}
-
-.end-spacer {
-    min-width:  @side-margin;
-}
