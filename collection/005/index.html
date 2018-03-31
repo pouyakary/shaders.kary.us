@@ -10,7 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
 </head>
 <body>
-    <canvas class="glslCanvas" data-fragment="
+
+    <canvas id="shader" class="glslCanvas" data-fragment="
 //
 // Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
 //
@@ -52,6 +53,7 @@ void main ( ) {
         gl_FragColor = vec4( 0.1, 0.0, 0.2, 1.0 );
     }
 }"></canvas>
+
     <div class="title-container">
         <div class="title-name-container">
             <div class="title-name">005</div>
@@ -63,5 +65,11 @@ void main ( ) {
             gallery
         </a>
     </div>
+
+    <script>
+        var shader = document.getElementById( "shader" );
+        shader.setAttribute( "height", window.innerHeight );
+        shader.setAttribute( "width", window.innerWidth );
+    </script>
 </body>
 </html>
