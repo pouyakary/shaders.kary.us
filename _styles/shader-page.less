@@ -73,26 +73,27 @@ body {
 }
 
 a.back-button {
-    font-size:              calc( ~"@{font-size} * 0.9" );
-    letter-spacing:         1pt;
     border-top:             @button-border;
     color:                  @color;
     flex:                   auto;
+    font-size:              calc( ~"@{font-size} * 0.9" );
     font-weight:            600;
+    letter-spacing:         1pt;
+    margin-top:             @button-border-padding;
     max-height:             fit-content;
     padding-top:            @button-border-padding;
     text-decoration:        none;
     text-transform:         uppercase;
     transition-duration:    @button-transition-duration;
     width:                  @sidebar-width - 20pt;
+}
 
-    :hover {
-        border-color:           transparent;
-        border-top-color:       white;
-        color:                  white;
-        padding-bottom:         calc( ~"@{button-border-padding} + 2pt" );
-        transition-duration:    @button-transition-duration;
-    }
+a.back-button:hover {
+    border-color:           transparent;
+    border-top-color:       white;
+    color:                  white;
+    padding-bottom:         calc( ~"@{button-border-padding} + 2pt" );
+    transition-duration:    @button-transition-duration;
 }
 
 canvas {

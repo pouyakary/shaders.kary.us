@@ -73,6 +73,7 @@
                 .replace( "{{-FRAGMENT-PLACEHOLDER-}}", fragmentFileString )
                 .replace( "{{-FRAGMENT-TITLE-}}", name )
                 .replace( "{{-FRAGMENT-NAME-}}", name )
+                .replace( "{{--FRAG-FILE-NAME--}}", fileName )
 
         writeShaderHTML( fileName, resultFile )
     }
