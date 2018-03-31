@@ -4,8 +4,15 @@
   "description": "",
   "main": "_build.js",
   "scripts": {
-    "clean": "rm -rf ./collection",
-    "build": "npm run clean; node ./_build.js"
+    "compile-styles": "lessc ./_styles/homepage.less ./assets/homepage.css && lessc ./_styles/shader-page.less ./assets/shader-page.css",
+    "compile-pages": "node ./_build.js",
+    "compile": "npm run compile-styles && npm run compile-pages",
+
+    "clean-shaders": "rm -rf ./collection",
+    "clean-styles": "find ./assets -name '*.css' -type f -delete",
+    "clean": "npm run clean-shaders && npm run clean-styles",
+
+    "build": "npm run clean; npm run compile"
   },
   "author": "",
   "license": "ISC"

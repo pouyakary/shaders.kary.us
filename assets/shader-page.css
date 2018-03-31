@@ -1,107 +1,69 @@
-
 /* Copyright 2018 Pouya Kary. All Rights Reserved, */
-
-:root {
-    --button-transition-duration:
-        0.3s;
-    --color:
-        rgba( 255, 255, 255, 0.4 );
-    --font-family:
-        'Roboto', sans-serif;
-    --font-size:
-        15pt;
-    --side-margins:
-        30pt;
-    --sidebar-width:
-        100pt;
-}
-
 html {
-    font-family:    var( --font-family );
+  font-family: 'Roboto', sans-serif;
 }
-
 * {
-    user-select:    none;
+  user-select: none;
 }
-
 body {
-    color:          var( --color );
-    margin:         0;
-    overflow:       hidden;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  overflow: hidden;
 }
-
 .container {
-    display:    flex;
-    height:     100vh;
-    width:      calc( 100vw - var( --side-margins ) * 2 );
+  display: flex;
+  height: 100vh;
+  width: calc(100vw - 30pt * 2);
 }
-
 .title-container {
-    display:            flex;
-    flex:               auto;
-    flex-direction:     column;
-    height:             calc( 100vh - 2 * var( --side-margins ) );
-    margin:             var( --side-margins );
-    margin-right:       var( --side-margins );
-    max-width:          var( --sidebar-width );
-    min-width:          var( --sidebar-width );
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  height: calc(100vh - 2 * 30pt);
+  margin: 30pt;
+  margin-right: 30pt;
+  max-width: 100pt;
+  min-width: 100pt;
 }
-
 .title-name-container {
-    flex:           1;
-    min-width:      max-content;
+  flex: 1;
+  min-width: max-content;
 }
-
 .title-name {
-    --origin-x:
-        calc( var( --title-font-size ) - 20pt );
-    --origin-y:
-        var( --title-font-size );
-    --title-font-size:
-        calc( 8.4 * var( --font-size ) );
-
-    flex:                   1;
-    font-size:              var( --title-font-size );
-    font-weight:            900;
-    letter-spacing:         1pt;
-    text-transform:         uppercase;
-    transform:              rotate( -90deg );
-    transform-origin:       var( --origin-x ) var( --origin-y );
+  flex: 1;
+  font-size: calc(8.4 * 15pt);
+  font-weight: 900;
+  letter-spacing: 1pt;
+  text-transform: uppercase;
+  transform: rotate(-90deg);
+  transform-origin: calc(calc(8.4 * 15pt) - 20pt) calc(8.4 * 15pt);
 }
-
 a.back-button {
-    --button-border:
-        2pt solid var( --color );
-    --button-border-padding:
-        10pt;
-
-    font-size:              calc( var( --font-size ) * 0.9 );
-    letter-spacing:         1pt;
-    border-top:             var( --button-border );
-    color:                  var( --color );
-    flex:                   auto;
-    font-weight:            600;
-    max-height:             fit-content;
-    padding-top:            var( --button-border-padding );
-    text-decoration:        none;
-    text-transform:         uppercase;
-    transition-duration:    var( --button-transition-duration );
-    width:                  var( --sidebar-width - 20pt );
+  font-size: calc(15pt * 0.9);
+  letter-spacing: 1pt;
+  border-top: 2pt solid rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.4);
+  flex: auto;
+  font-weight: 600;
+  max-height: fit-content;
+  padding-top: 10pt;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition-duration: 0.3s;
+  width: 80pt;
 }
-
 a.back-button:hover {
-    border-color:           transparent;
-    border-top-color:       white;
-    color:                  white;
-    padding-bottom:         calc( var( --button-border-padding ) + 2pt );
-    transition-duration:    var( --button-transition-duration );
+  border-color: transparent;
+  border-top-color: white;
+  color: white;
+  padding-bottom: calc(10pt + 2pt);
+  transition-duration: 0.3s;
 }
-
 canvas {
-    height:         100vh;
-    left:           0;
-    position:       fixed;
-    top:            0;
-    width:          100vw;
-    z-index:        -10;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: -10;
 }

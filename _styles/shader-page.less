@@ -1,0 +1,105 @@
+
+/* Copyright 2018 Pouya Kary. All Rights Reserved, */
+
+@button-transition-duration:
+    0.3s;
+@color:
+    rgba( 255, 255, 255, 0.4 );
+@font-family:
+    'Roboto', sans-serif;
+@font-size:
+    15pt;
+@side-margins:
+    30pt;
+@sidebar-width:
+    100pt;
+@button-border:
+    2pt solid @color;
+@button-border-padding:
+    10pt;
+
+
+html {
+    font-family:    @font-family;
+}
+
+* {
+    user-select:    none;
+}
+
+body {
+    color:          @color;
+    margin:         0;
+    overflow:       hidden;
+}
+
+.container {
+    display:    flex;
+    height:     100vh;
+    width:      calc( ~"100vw - @{side-margins} * 2" );
+}
+
+.title-container {
+    display:            flex;
+    flex:               auto;
+    flex-direction:     column;
+    height:             calc( ~"100vh - 2 * @{side-margins}" );
+    margin:             @side-margins;
+    margin-right:       @side-margins;
+    max-width:          @sidebar-width;
+    min-width:          @sidebar-width;
+}
+
+.title-name-container {
+    flex:           1;
+    min-width:      max-content;
+}
+
+.title-name {
+    @origin-x:
+        calc( ~"@{title-font-size} - 20pt" );
+    @origin-y:
+        @title-font-size;
+    @title-font-size:
+        calc( ~"8.4 * @{font-size}" );
+
+    flex:                   1;
+    font-size:              @title-font-size;
+    font-weight:            900;
+    letter-spacing:         1pt;
+    text-transform:         uppercase;
+    transform:              rotate( -90deg );
+    transform-origin:       @origin-x @origin-y;
+}
+
+a.back-button {
+    font-size:              calc( ~"@{font-size} * 0.9" );
+    letter-spacing:         1pt;
+    border-top:             @button-border;
+    color:                  @color;
+    flex:                   auto;
+    font-weight:            600;
+    max-height:             fit-content;
+    padding-top:            @button-border-padding;
+    text-decoration:        none;
+    text-transform:         uppercase;
+    transition-duration:    @button-transition-duration;
+    width:                  @sidebar-width - 20pt;
+
+    :hover {
+        border-color:           transparent;
+        border-top-color:       white;
+        color:                  white;
+        padding-bottom:         calc( ~"@{button-border-padding} + 2pt" );
+        transition-duration:    @button-transition-duration;
+    }
+}
+
+canvas {
+    height:         100vh;
+    left:           0;
+    position:       fixed;
+    top:            0;
+    width:          100vw;
+    z-index:        -10;
+}
