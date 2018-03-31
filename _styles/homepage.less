@@ -83,7 +83,7 @@
         background-repeat:      no-repeat;
         background-size:        contain;
         height:                 @kary-logo-size;
-        left:                   @side-margin;
+        left:                   @side-margin + 5pt;
         opacity:                0.4;
         position:               fixed;
         top:                    @side-margin;
@@ -101,10 +101,13 @@
 //
 
     .boxes {
+        @boxes-height:
+            300pt;
+
         display:        flex;
         flex:           auto;
-        max-height:     320pt;
-        min-height:     320pt;
+        max-height:     @boxes-height;
+        min-height:     @boxes-height;
         overflow-x:     scroll;
         padding:        @side-margin;
     }

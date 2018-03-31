@@ -40,7 +40,7 @@ header {
   background-repeat: no-repeat;
   background-size: contain;
   height: 50pt;
-  left: 30pt;
+  left: 35pt;
   opacity: 0.4;
   position: fixed;
   top: 30pt;
@@ -54,8 +54,8 @@ header {
 .boxes {
   display: flex;
   flex: auto;
-  max-height: 320pt;
-  min-height: 320pt;
+  max-height: 300pt;
+  min-height: 300pt;
   overflow-x: scroll;
   padding: 30pt;
 }
