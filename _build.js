@@ -27,7 +27,7 @@
         getTemplate( "box" )
 
     const baseURL =
-        "http://shaders.fun.kary.us/"
+        "http://shaders.toys.kary.us/"
 
     const shadersDir =
         "collection"
