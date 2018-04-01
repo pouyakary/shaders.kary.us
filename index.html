@@ -11,26 +11,6 @@
     <script src="./assets/canvas.js"></script>
 </head>
 <body>
-    <canvas id="background" class="glslCanvas" data-fragment="
-        #ifdef GL_ES
-            precision mediump float;
-        #endif
-
-        uniform vec2 u_resolution;
-        uniform vec2 u_mouse;
-        uniform float u_time;
-
-        void main( ) {
-            vec2 st = gl_FragCoord.xy / u_resolution;
-
-            float red =
-                0.2 + abs( sin( u_time ) ) * 0.2;
-            float blue =
-                0.2 + abs( cos( u_time ) ) * 0.3;
-
-            gl_FragColor = vec4( red, 0.0, blue, 1.0 );
-        }">
-    </canvas>
     <div class="page-container">
         <header>
             <a href="http://kary.us/">

@@ -34,15 +34,6 @@
         overflow:           hidden;
     }
 
-    #background {
-        position: fixed;
-        z-index: -10;
-        right: 0;
-        top: 0;
-        height: 100vh;
-        width: 100vw;
-    }
-
 //
 // ─── PAGE CONTAINER ─────────────────────────────────────────────────────────────
 //
@@ -102,7 +93,7 @@
 
     .boxes {
         @boxes-height:
-            300pt;
+            280pt;
 
         display:        flex;
         flex:           auto;
@@ -113,12 +104,10 @@
     }
 
     .box-container {
-        background-color:       black;
         flex:                   auto;
         margin-right:           @side-margin;
         max-height:             fit-content;
         max-width:              200pt;
-        padding:                10pt;
     }
 
     .box {
