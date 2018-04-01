@@ -30,11 +30,11 @@ void main ( ) {
 	vec2 st =
         gl_FragCoord.xy / u_resolution;
     float red =
-        abs( sin( st.x * 10.0 ) ) * 0.4;
+        abs( sin( st.x * 10.0 ) ) * 0.6;
     float blue =
         abs( cos( gl_FragCoord.y / 5.0 ) );
 
-	gl_FragColor = vec4(red, 0. , blue, 1. );
+	gl_FragColor = vec4( red, 0. , blue, 1. );
 }
 "></canvas>
 
