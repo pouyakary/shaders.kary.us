@@ -21,8 +21,8 @@ body {
   height: calc(100vh - 2 * 30pt);
   margin: 30pt;
   margin-right: 30pt;
-  max-width: 100pt;
-  min-width: 100pt;
+  max-width: 120pt;
+  min-width: 120pt;
 }
 .title-name-container {
   flex: 1;
@@ -42,7 +42,7 @@ a.back-button {
   color: rgba(255, 255, 255, 0.4);
   flex: auto;
   font-size: calc(15pt * 0.9);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1pt;
   margin-top: 10pt;
   max-height: fit-content;
@@ -50,7 +50,7 @@ a.back-button {
   text-decoration: none;
   text-transform: uppercase;
   transition-duration: 0.3s;
-  width: 80pt;
+  width: 100pt;
 }
 a.back-button:hover {
   border-color: transparent;
