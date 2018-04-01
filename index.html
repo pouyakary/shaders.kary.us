@@ -7,7 +7,7 @@
     <title>Gallery of Pouya's Shaders</title>
 
     <link rel="stylesheet" href="./assets/homepage.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
     <script src="./assets/canvas.js"></script>
 </head>
 <body>
@@ -185,6 +185,35 @@ void main ( ) {
         gl_FragColor = vec4( 0.1, 0.0, 0.2, 1.0 );
     }
 }"></canvas>
+    </a>
+</div>
+<div class="box-container">
+    <a class="box" href="http://shaders.toys.kary.us/collection/006/">
+        <div class="box-title">006</div>
+        <canvas class="glslCanvas box-shader" data-fragment="
+//
+// Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
+//
+
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
+
+void main ( ) {
+	vec2 st =
+        gl_FragCoord.xy / u_resolution;
+    float red =
+        abs( sin( st.x * 10.0 ) ) * 0.4;
+    float blue =
+        abs( cos( gl_FragCoord.y / 5.0 ) );
+
+	gl_FragColor = vec4(red, 0. , blue, 1. );
+}
+"></canvas>
     </a>
 </div>
             <div class="end-spacer"></div>
