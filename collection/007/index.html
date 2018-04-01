@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>007 &bullet; Gallery of Pouya's Shaders</title>
+
+    <script type="text/javascript" src="../../assets/canvas.js"></script>
+
+    <link rel="stylesheet" href="../../assets/shader-page.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:700,900" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="shader" class="glslCanvas" data-fragment="
+//
+// Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
+//
+
+#ifdef GL_ES
+	precision mediump float;
+#endif
+
+#define PI 3.14159265359
+
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
+
+
+void main() {
+    vec2 st =
+        gl_FragCoord.xy / u_resolution;
+
+    float dist = distance( st, vec2( 0.5,0.5 ) );
+
+    float y = fract( st.y - ( sin(  gl_FragCoord.x ) ) * 10. * u_time ) * ( 0.5 - dist );
+
+
+
+    gl_FragColor =
+        vec4( 0.0, y * 2.0, 0., 1.0 );
+}"></canvas>
+
+    <div class="title-container">
+        <div class="title-name-container">
+            <div class="title-name">007</div>
+        </div>
+        <a class="back-button" href="http://shaders.toys.kary.us/shaders/007.frag">
+            code
+        </a>
+        <a class="back-button" href="http://shaders.toys.kary.us/">
+            gallery
+        </a>
+    </div>
+
+    <script src="../../assets/canvas-resize.js"></script>
+</body>
+</html>
