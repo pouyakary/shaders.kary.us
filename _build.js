@@ -15,7 +15,7 @@
 //
 
     const shadersDirectory =
-        path.join( process.cwd( ), "_shaders" )
+        path.join( process.cwd( ), "shaders" )
 
     const homepageFileString =
         getTemplate( "home" )
@@ -48,7 +48,7 @@
 //
 
     function getShader ( name ) {
-        return fs.readFileSync( path.join( process.cwd( ), "_shaders", name ) )
+        return fs.readFileSync( path.join( shadersDirectory, name ) )
     }
 
 //
