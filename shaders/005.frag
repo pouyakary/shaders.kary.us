@@ -11,20 +11,22 @@ uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
 
-bool inCircle ( vec2 position ) {
+bool inCircle ( ) {
     vec2 pos =
-        position;
+        gl_FragCoord.xy;
     vec2 center =
-        vec2( 0.5, 0.5 );
+        vec2( 0.5 * u_resolution.x, 0.5 * u_resolution.y );
     float d =
         distance( pos, center );
-    return d < 0.4;
+    float radius =
+        min( u_resolution.x, u_resolution.y ) * 0.4;
+    return d < radius;
 }
 
 void main ( ) {
     vec2 st = gl_FragCoord.xy / u_resolution.x;
 
-    if ( inCircle( st ) ) {
+    if ( inCircle( ) ) {
         float red =
             abs( sin( u_time  ) ) * 5.0;
         float green =
