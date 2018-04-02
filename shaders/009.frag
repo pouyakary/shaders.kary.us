@@ -37,12 +37,13 @@
         float r =
             abs( cos( time ) );
 
-        if ( st.y > y )
+        if ( st.y > y ) {
             gl_FragColor =
-                vec4( 0., 0., 1. - st.y, 0.);
-        else
+                vec4( st.y * 0.3, 0., ( 1. - st.y ) * 0.6, 0.);
+        } else {
             gl_FragColor =
                 vec4( r * 0.420, ( 1. - r ) * 0.340, color_range , 1. );
+        }
     }
 
 // ────────────────────────────────────────────────────────────────────────────────
