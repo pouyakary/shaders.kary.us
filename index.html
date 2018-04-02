@@ -431,7 +431,7 @@
 
         if ( st.y > y ) {
             gl_FragColor =
-                vec4( st.y * 0.3, 0., ( 1. - st.y ) * 0.6, 0.);
+                vec4( st.y * 0.3, 0., ( 1. - st.y ) * 0.6, 1. );
         } else {
             gl_FragColor =
                 vec4( r * 0.420, ( 1. - r ) * 0.340, color_range , 1. );
