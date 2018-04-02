@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>009 &bullet; Gallery of Pouya's Shaders</title>
+
+    <script type="text/javascript" src="../../assets/canvas.js"></script>
+
+    <link rel="stylesheet" href="../../assets/shader-page.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:700,900" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="shader" class="glslCanvas" data-fragment="//
+// Copyright ][dff2018 Pouya Kary <pouya@kary.us>. All rights reserved.
+//
+
+//
+// ─── GLSL CANVAS STARTERS ───────────────────────────────────────────────────────
+//
+
+    #ifdef GL_ES
+        precision mediump float;
+    #endif
+
+    uniform vec2  u_resolution;
+    uniform vec2  u_mouse;
+    uniform float u_time;
+
+//
+// ─── MAIN ───────────────────────────────────────────────────────────────────────
+//
+
+    void main ( ) {
+        vec2 st =
+            gl_FragCoord.xy / u_resolution;
+
+        float time =
+            u_time / 5.;
+
+        float x =
+            sin( st.x + 4. ) + sin( time );
+
+        float y =
+            abs( sin( x * 6.048 ) ) * 0.636 + abs( cos( time ) ) * -0.132 + 0.2;
+
+        float color_range =
+            st.y / y;
+
+        float r =
+            abs( cos( time ) );
+
+        if ( st.y > y )
+            gl_FragColor =
+                vec4( 0., 0., 1. - st.y, 0.);
+        else
+            gl_FragColor =
+                vec4( r * 0.420, ( 1. - r ) * 0.340, color_range , 1. );
+    }
+
+// ────────────────────────────────────────────────────────────────────────────────
+"></canvas>
+
+    <div class="title-container">
+        <div class="title-name-container">
+            <div class="title-name">009</div>
+        </div>
+        <a class="back-button" href="http://shaders.toys.kary.us/shaders/009.frag">
+            code
+        </a>
+        <a class="back-button" href="http://shaders.toys.kary.us/">
+            gallery
+        </a>
+    </div>
+
+    <script src="../../assets/canvas-resize.js"></script>
+</body>
+</html>
