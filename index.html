@@ -28,24 +28,36 @@
 // Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
 //
 
-#ifdef GL_ES
-	precision mediump float;
-#endif
+//
+// ─── GLSL CANVAS STARTERS ───────────────────────────────────────────────────────
+//
 
-uniform vec2 u_resolution;
-uniform vec2 u_mouse;
-uniform float u_time;
+    #ifdef GL_ES
+        precision mediump float;
+    #endif
 
-void main( ) {
-    vec2 st = gl_FragCoord.xy / u_resolution;
+    uniform vec2  u_resolution;
+    uniform vec2  u_mouse;
+    uniform float u_time;
 
-    gl_FragColor = vec4(
-        abs( cos( u_time ) ) - sin( st.y ) * 1.0,
-       	abs( cos( u_time ) ) - cos( st.y ) * 2.0,
-        abs( sin( u_time ) ) - cos( st.y ) * 0.1,
-       	1.0
-    );
-}"></canvas>
+//
+// ─── MAIN ───────────────────────────────────────────────────────────────────────
+//
+
+    void main ( ) {
+        vec2 st =
+            gl_FragCoord.xy / u_resolution;
+
+        gl_FragColor = vec4(
+            abs( cos( u_time ) ) - sin( st.y ) * 1.0,
+            abs( cos( u_time ) ) - cos( st.y ) * 2.0,
+            abs( sin( u_time ) ) - cos( st.y ) * 0.1,
+            1.0
+        );
+    }
+
+// ────────────────────────────────────────────────────────────────────────────────
+"></canvas>
     </a>
 </div>
 <div class="box-container">
@@ -56,33 +68,39 @@ void main( ) {
 // Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
 //
 
-#ifdef GL_ES
-    precision mediump float;
-#endif
+//
+// ─── GLSL CANVAS STARTERS ───────────────────────────────────────────────────────
+//
 
-uniform vec2 u_resolution;
-uniform vec2 u_mouse;
-uniform float u_time;
+    #ifdef GL_ES
+        precision mediump float;
+    #endif
 
-void main ( ) {
-    vec2 st =
-        gl_FragCoord.xy / u_resolution;
+    uniform vec2  u_resolution;
+    uniform vec2  u_mouse;
+    uniform float u_time;
 
-    float red =
-        pow( st.x, abs( sin( u_time ) * 3.0 ) );
+//
+// ─── MAIN ───────────────────────────────────────────────────────────────────────
+//
 
-    float green =
-        pow( st.x, abs( cos( u_time ) ) * 5.0 );
+    void main ( ) {
+        vec2 st =
+            gl_FragCoord.xy / u_resolution;
+        float red =
+            pow( st.x, abs( sin( u_time ) * 3.0 ) );
+        float green =
+            pow( st.x, abs( cos( u_time ) ) * 5.0 );
+        float blue =
+            pow( st.y, abs( sin( u_time ) * 2.0 ) );
+        vec3 color =
+            vec3( red, green, blue );
+        gl_FragColor =
+            vec4( color, 1.0 );
+    }
 
-    float blue =
-        pow( st.y, abs( sin( u_time ) * 2.0 ) );
-
-    vec3 color =
-        vec3( red, green, blue );
-
-    gl_FragColor =
-        vec4( color, 1.0 );
-}"></canvas>
+// ────────────────────────────────────────────────────────────────────────────────
+"></canvas>
     </a>
 </div>
 <div class="box-container">
@@ -93,26 +111,38 @@ void main ( ) {
 // Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
 //
 
-#ifdef GL_ES
-	precision mediump float;
-#endif
+//
+// ─── GLSL CANVAS STARTERS ───────────────────────────────────────────────────────
+//
 
-uniform vec2 u_resolution;
-uniform vec2 u_mouse;
-uniform float u_time;
+    #ifdef GL_ES
+        precision mediump float;
+    #endif
 
-void main( ) {
-    vec2 st = gl_FragCoord.xy / u_resolution;
+    uniform vec2  u_resolution;
+    uniform vec2  u_mouse;
+    uniform float u_time;
 
-    float t = fract( sin( gl_FragCoord.x ) * gl_FragCoord.x ) + u_time;
+//
+// ─── MAIN ───────────────────────────────────────────────────────────────────────
+//
 
-    gl_FragColor = vec4(
-        abs( sin( t ) ) - cos( st.y ) / 1.5,
-       	abs( cos( t ) ) - tan( st.y ) * 2.0,
-        abs( sin( t ) ) - sin( st.y ) / 1.2,
-       	1.0
-    );
-}"></canvas>
+    void main ( ) {
+        vec2 st =
+            gl_FragCoord.xy / u_resolution;
+        float t =
+            fract( sin( gl_FragCoord.x ) * gl_FragCoord.x ) + u_time;
+
+        gl_FragColor = vec4(
+            abs( sin( t ) ) - cos( st.y ) / 1.5,
+            abs( cos( t ) ) - tan( st.y ) * 2.0,
+            abs( sin( t ) ) - sin( st.y ) / 1.2,
+            1.0
+        );
+    }
+
+// ────────────────────────────────────────────────────────────────────────────────
+"></canvas>
     </a>
 </div>
 <div class="box-container">
@@ -123,24 +153,36 @@ void main( ) {
 // Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
 //
 
-#ifdef GL_ES
-	precision mediump float;
-#endif
+//
+// ─── GLSL CANVAS STARTERS ───────────────────────────────────────────────────────
+//
 
-uniform vec2 u_resolution;
-uniform vec2 u_mouse;
-uniform float u_time;
+    #ifdef GL_ES
+        precision mediump float;
+    #endif
 
-void main( ) {
-    vec2 st = gl_FragCoord.xy / u_resolution;
+    uniform vec2  u_resolution;
+    uniform vec2  u_mouse;
+    uniform float u_time;
 
-    gl_FragColor = vec4(
-        abs( cos( u_time ) ) - sin( st.y ),
-       	abs( cos( u_time ) ) - cos( st.y ) * 2.0,
-        abs( sin( u_time ) ) - cos( st.y ),
-       	1.0
-    );
-}"></canvas>
+//
+// ─── MAIN ───────────────────────────────────────────────────────────────────────
+//
+
+    void main ( ) {
+        vec2 st =
+            gl_FragCoord.xy / u_resolution;
+
+        gl_FragColor = vec4(
+            abs( cos( u_time ) ) - sin( st.y ),
+            abs( cos( u_time ) ) - cos( st.y ) * 2.0,
+            abs( sin( u_time ) ) - cos( st.y ),
+            1.0
+        );
+    }
+
+// ────────────────────────────────────────────────────────────────────────────────
+"></canvas>
     </a>
 </div>
 <div class="box-container">
@@ -151,42 +193,61 @@ void main( ) {
 // Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
 //
 
-#ifdef GL_ES
-	precision mediump float;
-#endif
+//
+// ─── GLCANVAS STARTERS ──────────────────────────────────────────────────────────
+//
 
-uniform vec2 u_resolution;
-uniform vec2 u_mouse;
-uniform float u_time;
+    #ifdef GL_ES
+        precision mediump float;
+    #endif
 
-bool inCircle ( ) {
-    vec2 pos =
-        gl_FragCoord.xy;
-    vec2 center =
-        vec2( 0.5 * u_resolution.x, 0.5 * u_resolution.y );
-    float d =
-        distance( pos, center );
-    float radius =
-        min( u_resolution.x, u_resolution.y ) * 0.4;
-    return d < radius;
-}
+    uniform vec2  u_resolution;
+    uniform vec2  u_mouse;
+    uniform float u_time;
 
-void main ( ) {
-    vec2 st = gl_FragCoord.xy / u_resolution.x;
+//
+// ─── IS PIXEL WITHIN THE CIRCLE ─────────────────────────────────────────────────
+//
 
-    if ( inCircle( ) ) {
-        float red =
-            abs( sin( u_time  ) ) * 5.0;
-        float green =
-            0.0;
-        float blue =
-            abs( sin( fract( st.x + cos( u_time ) ) * st.x * 10.0 ) );
+    bool inCircle ( ) {
+        vec2 pos =
+            gl_FragCoord.xy;
+        vec2 center =
+            vec2( 0.5 * u_resolution.x, 0.5 * u_resolution.y );
+        float d =
+            distance( pos, center );
+        float radius =
+            min( u_resolution.x, u_resolution.y ) * 0.4;
 
-        gl_FragColor = vec4( red, green, blue, 1.0 );
-    } else {
-        gl_FragColor = vec4( 0.1, 0.0, 0.2, 1.0 );
+        return d < radius;
     }
-}"></canvas>
+
+//
+// ─── MAIN FUNCTION ──────────────────────────────────────────────────────────────
+//
+
+    void main ( ) {
+        vec2 st =
+            gl_FragCoord.xy / u_resolution.x;
+
+        if ( inCircle( ) ) {
+            float red =
+                abs( sin( u_time  ) ) * 5.0;
+            float green =
+                0.0;
+            float blue =
+                abs( sin( fract( st.x + cos( u_time ) ) * st.x * 10.0 ) );
+            gl_FragColor =
+                vec4( red, green, blue, 1.0 );
+
+        } else {
+            gl_FragColor =
+                vec4( 0.1, 0.0, 0.2, 1.0 );
+        }
+    }
+
+// ────────────────────────────────────────────────────────────────────────────────
+"></canvas>
     </a>
 </div>
 <div class="box-container">
@@ -197,26 +258,36 @@ void main ( ) {
 // Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
 //
 
-#ifdef GL_ES
-precision mediump float;
-#endif
+//
+// ─── GLSL STARTERS ──────────────────────────────────────────────────────────────
+//
 
-uniform vec2 u_resolution;
-uniform vec2 u_mouse;
-uniform float u_time;
+    #ifdef GL_ES
+        precision mediump float;
+    #endif
 
-void main ( ) {
-	vec2 st =
-        gl_FragCoord.xy / u_resolution;
-    float blue_ratio =
-        abs( sin( u_time ) ) * 10.0;
-    float red =
-        abs( sin( st.x * blue_ratio ) ) * 0.6;
-    float blue =
-        abs( cos( gl_FragCoord.y / 30.0 ) );
+    uniform vec2  u_resolution;
+    uniform vec2  u_mouse;
+    uniform float u_time;
 
-	gl_FragColor = vec4( red, 0. , blue, 1. );
-}
+//
+// ─── MAIN ───────────────────────────────────────────────────────────────────────
+//
+
+    void main ( ) {
+        vec2 st =
+            gl_FragCoord.xy / u_resolution;
+        float blue_ratio =
+            abs( sin( u_time ) ) * 10.0;
+        float red =
+            abs( sin( st.x * blue_ratio ) ) * 0.6;
+        float blue =
+            abs( cos( gl_FragCoord.y / 30.0 ) );
+        gl_FragColor =
+            vec4( red, 0. , blue, 1. );
+    }
+
+// ────────────────────────────────────────────────────────────────────────────────
 "></canvas>
     </a>
 </div>
@@ -225,33 +296,40 @@ void main ( ) {
         <div class="box-title">007</div>
         <canvas class="glslCanvas box-shader" data-fragment="
 //
-// Copyright 2018 Pouya Kary <pouya@kary.us>. All rights reserved.
+// Copyright ][dff2018 Pouya Kary <pouya@kary.us>. All rights reserved.
 //
 
-#ifdef GL_ES
-	precision mediump float;
-#endif
+//
+// ─── GLSL CANVAS STARTERS ───────────────────────────────────────────────────────
+//
 
-#define PI 3.14159265359
+    #ifdef GL_ES
+        precision mediump float;
+    #endif
 
-uniform vec2 u_resolution;
-uniform vec2 u_mouse;
-uniform float u_time;
+    #define PI 3.14159265359
 
+    uniform vec2  u_resolution;
+    uniform vec2  u_mouse;
+    uniform float u_time;
 
-void main() {
-    vec2 st =
-        gl_FragCoord.xy / u_resolution;
+//
+// ─── MAIN ───────────────────────────────────────────────────────────────────────
+//
 
-    float dist = distance( st, vec2( 0.5,0.5 ) );
+    void main ( ) {
+        vec2 st =
+            gl_FragCoord.xy / u_resolution;
+        float dist =
+            distance( st, vec2( 0.5,0.5 ) );
+        float y =
+            fract( st.y - ( sin( gl_FragCoord.x ) ) * 10. * u_time ) * ( 0.5 - dist );
+        gl_FragColor =
+            vec4( 0., y * 2.0, 0., 1.0 );
+    }
 
-    float y = fract( st.y - ( sin(  gl_FragCoord.x ) ) * 10. * u_time ) * ( 0.5 - dist );
-
-
-
-    gl_FragColor =
-        vec4( 0., y * 2.0, 0., 1.0 );
-}"></canvas>
+// ────────────────────────────────────────────────────────────────────────────────
+"></canvas>
     </a>
 </div>
             <div class="end-spacer"></div>
