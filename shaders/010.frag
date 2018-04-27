@@ -39,16 +39,21 @@
     void main ( ) {
         vec2 st =
             gl_FragColor.xy / u_resolution.xy;
+        float red =
+            abs( sin( u_time ) );
+        float green =
+            cos( gl_FragCoord.x * u_time );
+        float blue =
+            1. - abs( cos( u_time ) );
+        float c =
+            4.;
 
         if ( inCircle( ) ) {
-            float red =
-               abs( sin( u_time ) );
-            float green =
-                cos( gl_FragCoord.x * u_time );
-            float blue =
-                1. - abs( cos( u_time ) );
             gl_FragColor =
                 vec4( red, green, blue, 1.0 );
+        } else {
+            gl_FragColor =
+                vec4( red / c, green / c, blue / c, 1.0 );
         }
     }
 
