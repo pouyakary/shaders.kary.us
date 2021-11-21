@@ -76,12 +76,9 @@ void main() {
     } else {
         // this is for the grid
     	if (is_on_grid(gx, gy)) {
-            gl_FragColor = vec4(0.000,0.3,0.000,1.000);
+            gl_FragColor = vec4(0.000, 0.3, 0.000, 1.000);
         } else {
          	gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
         }
     }
 }
-
-
-// hihi
