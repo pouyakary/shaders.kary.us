@@ -45,14 +45,33 @@ bool is_on_grid(float x, float y) {
     return is_made_of(abs(x), GUIDE_SIZE) || is_made_of(abs(y), GUIDE_SIZE);
 }
 
+bool evaluate_formula_the_new_way(float x, float y) {
+    float magic_score = compute_corner_magic_score(x, y);
+    return (-4.0 < magic_score && magic_score < 4.0);
+}
+
+bool evaluate_formula_the_old_way(float x, float y) {
+    float result = formula(x, y);
+    return -0.1 < result && result < 0.1;
+}
+
+bool is_on_graph(float x, float y) {
+    if (x < 0.0) {
+        // the new way
+        return evaluate_formula_the_new_way(x, y);
+    } else {
+        // the old way
+        return evaluate_formula_the_old_way(x, y);
+    }
+}
+
 void main() {
     float gx = gl_FragCoord.x - originX;
     float gy = gl_FragCoord.y - originY;
     float x = floor(gx / GUIDE_SIZE);
     float y = floor(gy / GUIDE_SIZE);
-    float magic_score = compute_corner_magic_score(x, y);
 
-   	if (-4.0 < magic_score && magic_score < 4.0) {
+   	if (is_on_graph(x, y)) {
  		gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
     } else {
         // this is for the grid
