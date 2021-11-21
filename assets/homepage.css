@@ -28,7 +28,7 @@ header {
   }
 }
 .kary-logo {
-  background-image: url("kary-logo.png");
+  background-image: url("./kary-logo.png");
   background-repeat: no-repeat;
   background-size: contain;
   height: 50pt;

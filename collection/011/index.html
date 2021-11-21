@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>011 &bullet; Gallery of Pouya's Shaders</title>
+
+    <script type="text/javascript" src="../../assets/canvas.js"></script>
+
+    <link rel="stylesheet" href="../../assets/shader-page.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:700,900" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="shader" class="glslCanvas" data-fragment="
+// Simulation of Magic Corner Algorithm for
+// displaying pixel graphs.
+// Learned from:
+// https://www.youtube.com/watch?v=EvvWOaLgKVU
+// To use for Arendelle and TextGraphic.
+
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
+
+float originX = u_resolution.x / 2.0;
+float originY = u_resolution.y / 2.0;
+float LINE_THICKNESS = 1.0;
+float GUIDE_SIZE = 2.0 + abs(cos(u_time)) * 23.0;
+
+float formula(float x, float y) {
+    return y - radians(180.0) * sin(radians(x * cos(u_time) * 4.0 * GUIDE_SIZE * 0.35)) * (120.0 / GUIDE_SIZE);
+}
+
+float check_formula(float x, float y) {
+    return sign(formula(x, y));
+}
+
+float compute_corner_magic_score(float x, float y) {
+    float step = LINE_THICKNESS;
+    float a = check_formula(x + step, y + step);
+    float b = check_formula(x       , y       );
+    float c = check_formula(x + step, y       );
+    float d = check_formula(x       , y + step);
+    return a + b + c + d;
+}
+
+bool is_made_of(float a, float b) {
+    return (a - floor(a / b) * b) <= 1.0;
+}
+
+bool is_on_grid(float x, float y) {
+    return is_made_of(abs(x), GUIDE_SIZE) || is_made_of(abs(y), GUIDE_SIZE);
+}
+
+void main() {
+    float gx = gl_FragCoord.x - originX;
+    float gy = gl_FragCoord.y - originY;
+    float x = floor(gx / GUIDE_SIZE);
+    float y = floor(gy / GUIDE_SIZE);
+    float magic_score = compute_corner_magic_score(x, y);
+
+   	if (-4.0 < magic_score && magic_score < 4.0) { 
+ 		gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
+    } else {
+        // this is for the grid
+    	if (is_on_grid(gx, gy)) {
+            gl_FragColor = vec4(0.000,0.3,0.000,1.000);
+        } else {
+         	gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);  
+        } 
+    }
+}
+
+
+// hihi
+"></canvas>
+
+    <div class="title-container">
+        <div class="title-name-container">
+            <div class="title-name">011</div>
+        </div>
+        <a class="back-button" href="https://shaders.kary.us/shaders/011.frag">
+            code
+        </a>
+        <a class="back-button" href="https://shaders.kary.us/">
+            gallery
+        </a>
+    </div>
+
+    <script src="../../assets/canvas-resize.js"></script>
+</body>
+</html>

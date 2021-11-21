@@ -27,7 +27,7 @@
         getTemplate( "box" )
 
     const baseURL =
-        "http://shaders.toys.kary.us/"
+        "https://shaders.kary.us/"
 
     const shadersDir =
         "collection"
@@ -74,6 +74,7 @@
                 .replace( "{{-FRAGMENT-TITLE-}}", name )
                 .replace( "{{-FRAGMENT-NAME-}}", name )
                 .replace( "{{--FRAG-FILE-NAME--}}", fileName )
+                .replace( /{{\-\-BASE-URL\-\-}}/g, baseURL )
 
         writeShaderHTML( fileName, resultFile )
     }
