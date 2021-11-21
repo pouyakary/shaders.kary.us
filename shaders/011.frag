@@ -18,10 +18,10 @@ uniform float u_time;
 float originX = u_resolution.x / 2.0;
 float originY = u_resolution.y / 2.0;
 float LINE_THICKNESS = 1.0;
-float GUIDE_SIZE = 2.0 + abs(cos(u_time)) * 23.0;
+float GUIDE_SIZE = 2.0 + abs(cos(u_time / 5.0)) * 23.0;
 
 float formula(float x, float y) {
-    return y - radians(180.0) * sin(radians(x * cos(u_time) * 4.0 * GUIDE_SIZE * 0.35)) * (u_resolution.y / (GUIDE_SIZE * 7.5));
+    return y - radians(180.0) * sin(radians(x * cos(u_time / 2.0) * 4.0 * GUIDE_SIZE * 0.35)) * (u_resolution.y / (GUIDE_SIZE * 7.5));
 }
 
 float check_formula(float x, float y) {
