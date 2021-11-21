@@ -1,4 +1,6 @@
 
+// Copyright 2021 by Pouya Kary <kary@gnu.org>
+
 // Simulation of Magic Corner Algorithm for
 // displaying pixel graphs.
 // Learned from:
@@ -50,15 +52,15 @@ void main() {
     float y = floor(gy / GUIDE_SIZE);
     float magic_score = compute_corner_magic_score(x, y);
 
-   	if (-4.0 < magic_score && magic_score < 4.0) { 
+   	if (-4.0 < magic_score && magic_score < 4.0) {
  		gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
     } else {
         // this is for the grid
     	if (is_on_grid(gx, gy)) {
             gl_FragColor = vec4(0.000,0.3,0.000,1.000);
         } else {
-         	gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);  
-        } 
+         	gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
+        }
     }
 }
 
